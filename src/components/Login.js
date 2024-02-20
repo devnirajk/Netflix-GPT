@@ -1,11 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import Header from './Header';
+import {validateData} from '../utils/validate';
 
 const Login = () => {
   const [showSignUp, setShowSignUp] = useState(false);
   const handleSignUp = () =>{
     setShowSignUp(!showSignUp);
   }
+
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const email = useRef("");
+  const password = useRef("");
+
+  const handleValidateData = () => {
+    const status = validateData(email.current.value, password.current.value);
+    setErrorMsg(status);
+  } 
+
+
+
   return (
     <div className='relative'>
         <Header />
@@ -20,11 +34,12 @@ const Login = () => {
               {showSignUp?"Sign Up":"Sign In"}
             </h1>
 
-            <form action="">
+            <form action="" onSubmit={(e)=>e.preventDefault()}>
             {(showSignUp) && <input type="text" placeholder='Your Name' className=' text-lg p-3 my-3 w-full rounded-sm bg-gray-600 text-white outline-none'/>}
-            <input type="text" placeholder='Email' className=' text-lg p-3 my-3 w-full rounded-sm bg-gray-600 text-white outline-none'/>
-            <input type="password" placeholder='Password' className='text-lg p-3 my-3  w-full rounded-sm bg-gray-600 text-white outline-none'/>
-            <button className='p-3 my-7 bg-red-700 opacity-100 w-full rounded-sm text-white font-semibold text-lg'>
+            <input ref={email} type="text" placeholder='Email' className=' text-lg p-3 my-3 w-full rounded-sm bg-gray-600 text-white outline-none'/>
+            <input ref={password} type="password" placeholder='Password' className='text-lg p-3 my-3  w-full rounded-sm bg-gray-600 text-white outline-none'/>
+            <h1 className='text-lg font-semibold text-red-600'>{errorMsg}</h1>
+            <button onClick={handleValidateData} className='p-3 my-7 bg-red-700 opacity-100 w-full rounded-sm text-white font-semibold text-lg'>
             {showSignUp?"Get Started":"Sign In"}
             </button>
             </form>
