@@ -1,14 +1,16 @@
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useEffect } from 'react';
 import {auth} from '../utils/firebase';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from '../utils/userSlice';
+import { toogleNetflixGPT } from '../utils/netflixGPT';
 
 const Header = () => {
   const user = useSelector((store) => store.user);
+  const gpt = useSelector((store) => store.netflixGPT);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -38,6 +40,10 @@ const Header = () => {
     });
   }
 
+  const handleToggleNetflixGPT = ()=>{
+    dispatch(toogleNetflixGPT());
+  }
+
   return (
     <div className="absolute z-50 w-[100%] px-4 py-2 bg-gradient-to-b from-black flex justify-between">
       <img 
@@ -47,6 +53,9 @@ const Header = () => {
       {
         (user)&&
         <div className="flex px-1 py-2">
+          <button 
+          onClick={handleToggleNetflixGPT}
+          className="text-white bg-teal-700 rounded-md px-2 font-medium"> {gpt===true ? "Close Netflix GPT" : "Open Netlfix GPT"} </button>
           <img
           alt="user_pic"
           className="w-12 mx-3"

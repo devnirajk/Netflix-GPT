@@ -7,3 +7,5 @@ export const options = {
 };
 
 export const img_cdn = "https://image.tmdb.org/t/p/original";
+
+export const OPENAI_API = "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";

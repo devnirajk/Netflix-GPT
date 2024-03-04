@@ -3,7 +3,7 @@ import MovieLists from './MovieLists'
 
 const SecondaryContainer = ({movieDetail}) => {
   return (
-    <div className='relative top-[835px] bg-black'>
+    <div className='relative top-[850px] bg-black'>
       <MovieLists title={"Now Playing Movies"} movies={movieDetail.nowPlayingMovies}/>
       <MovieLists title={"Popular Movies"} movies={movieDetail.popularMovies}/>
       <MovieLists title={"Top Rated Movies"} movies={movieDetail.topRatedMovies}/>
