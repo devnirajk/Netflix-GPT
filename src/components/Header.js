@@ -9,7 +9,7 @@ import { toogleNetflixGPT } from '../utils/netflixGPT';
  
 const Header = () => {
   const user = useSelector((store) => store.user);
-  const gpt = useSelector((store) => store.netflixGPT);
+  const gpt = useSelector((store) => store.netflixGPT.useNetflixGPT);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
