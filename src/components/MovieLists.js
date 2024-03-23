@@ -3,7 +3,6 @@ import MovieCards from './MovieCards'
 import { ShimmerSimpleGallery } from "react-shimmer-effects";;
 
 const MovieLists = ({title, movies, clicked}) => {
-  // console.log(movies)
   
    
   return (
@@ -14,7 +13,7 @@ const MovieLists = ({title, movies, clicked}) => {
     (<div className='flex overflow-x-scroll no-scrollbar px-3'>
     <div className='flex'>
       {
-        movies?.map((movie) => <MovieCards movie={movie}/>)
+        movies?.map((movie) => <MovieCards key={movie.id} movie={movie}/>)
       }
     </div>
     </div>)

@@ -1,4 +1,5 @@
 import Header from './Header';
+import { useState } from 'react';
 import MainContainer from './MainContainer';
 import SecondaryContainer from './SecondaryContainer';
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
@@ -10,7 +11,7 @@ import { useSelector } from 'react-redux';
 import NetflixGPT from './NetflixGPT';
 
 const Browse = () => {
-  useNowPlayingMovies();
+  useNowPlayingMovies()
   usePopularMovies();
   useTopRatedMovies();
   useUpcomingMovies();
@@ -23,7 +24,6 @@ const Browse = () => {
   if(!movieStore.topRatedMovies) return;
   if(!movieStore.upcomingMovies) return;
 
-  
   return (
     <div className='bg-black'>
       <Header />

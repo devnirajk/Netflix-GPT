@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from '../utils/userSlice';
 import { toogleNetflixGPT } from '../utils/netflixGPT';
-
+ 
 const Header = () => {
   const user = useSelector((store) => store.user);
   const gpt = useSelector((store) => store.netflixGPT);
@@ -55,7 +55,7 @@ const Header = () => {
         <div className="flex px-1 py-2">
           <button 
           onClick={handleToggleNetflixGPT}
-          className="text-white bg-teal-700 rounded-md px-2 font-medium"> {gpt===true ? "Close Netflix GPT" : "Open Netlfix GPT"} </button>
+          className="text-white bg-teal-700 rounded-md px-2 font-medium"> {gpt ? "Close Netflix GPT" : "Open Netlfix GPT"} </button>
           <img
           alt="user_pic"
           className="w-12 mx-3"

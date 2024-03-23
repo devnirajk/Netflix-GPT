@@ -8,4 +8,4 @@ export const options = {
 
 export const img_cdn = "https://image.tmdb.org/t/p/original";
 
-export const OPENAI_API = "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";
+export const OPENAI_API = "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";

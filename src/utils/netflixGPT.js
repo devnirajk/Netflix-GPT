@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const netflixGPT = createSlice({
     name:"netflixGPT",
-    initialState:{
+    initialState:{ 
         useNetflixGPT: false,
         movieSuggestionList: null
     },

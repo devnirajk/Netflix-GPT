@@ -7,7 +7,7 @@ const appStore = configureStore({
     reducer:{
         user: userReducer,
         movie: movieReducer,
-        netflixGPT: netflixGPT
+        netflixGPT: netflixGPT 
     }
 });
 
